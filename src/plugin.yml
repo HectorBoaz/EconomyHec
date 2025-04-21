@@ -1,0 +1,29 @@
+name: Economy
+main: net.byebye.balance.Main
+version: 1.0
+author: gabriel
+description: Um plugin de economia
+api-version: 1.21.4
+depend: [Vault]
+
+commands:
+  pagar:
+    description: Pagar outro jogador
+    permission: balance.pagar
+  saldo:
+    description: Ver seu saldo
+    permission: balance.saldo
+  addsaldo:
+    description: Adicionar saldo a um jogador
+    permission: balance.addsaldo
+  setsaldo:
+    description: Definir saldo de um jogador
+    permission: balance.setsaldo
+  versaldo:
+    description: Ver saldo de outro jogador
+    permission: balance.versaldo
+
+    
+    
+  
+
