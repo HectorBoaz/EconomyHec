@@ -1,0 +1,130 @@
+# Configurações do Economy
+# Por gabriel
+
+# Configurações de mensagens do sistema de Saldo
+messages:
+  balance:
+    no-money: "&cVocê não tem dinheiro suficiente."
+    payment-cancelled: "&cVocê cancelou o pagamento."
+    payment-success: "&eVocê pagou &aR${amount} &ea &d{player}."
+    payment-received: "&eVocê recebeu &aR${amount} &ede &d{player}."
+    self-payment: "&cVocê não pode mandar pagamentos para si mesmo."
+    add-balance: "&eO valor &aR${amount} &efoi adicionado a conta de &a{player}."
+    set-balance: "&eO saldo de &a{player} &efoi setado para &aR${amount}."
+    view-balance: "&eSaldo de &d{player}: &aR${amount}"
+    player-not-found: "&cJogador não encontrado."
+    invalid-amount: "&cValor inválido."
+
+  # Configurações de mensagens do sistema de Cash
+  cash:
+    no-cash: "&cVocê não tem cash suficiente."
+    transfer-cancelled: "&cVocê cancelou o envio de cash."
+    transfer-success: "&eVocê enviou &6{amount} Cash &epara &e{player}."
+    transfer-received: "&eVocê recebeu &6{amount} Cash &ede &e{player}."
+    self-transfer: "&cVocê não pode enviar cash para si mesmo."
+    add-cash: "&eO valor &6{amount} Cash &efoi adicionado a conta de &e{player}."
+    set-cash: "&eO cash de &e{player} &efoi setado para &6{amount}."
+    remove-cash: "&eO valor &6{amount} Cash &efoi removido da conta de &e{player}."
+    cash-received-notification: "&eVocê recebeu &6{amount} Cash&e."
+    cash-lost-notification: "&cVocê perdeu &6{amount} Cash&c."
+    cash-set-notification: "&eSeu cash foi setado para &6{amount}&e."
+    view-cash: "&6Cash de &e{player}: &6{amount}"
+    player-not-found: "&cJogador não encontrado."
+    invalid-amount: "&cValor inválido."
+
+# Configurações gerais
+settings:
+  # Salvar dados automaticamente a cada X minutos
+  auto-save-interval: 5
+
+  # Valor inicial de saldo para novos jogadores
+  starting-balance: 0.0
+
+  # Valor inicial de cash para novos jogadores
+  starting-cash: 0.0
+
+  # Permitir valores decimais no saldo
+  allow-decimal-balance: true
+
+  # Permitir valores decimais no cash
+  allow-decimal-cash: true
+
+  # Usar GUI para confirmação de transferências
+  use-confirmation-gui: true
+
+  # Taxa de transferência de saldo (0.0 = 0%, 0.1 = 10%)
+  balance-transfer-tax: 0.0
+
+  # Taxa de transferência de cash (0.0 = 0%, 0.1 = 10%)
+  cash-transfer-tax: 0.0
+
+  # Valor máximo que pode ser transferido por vez (saldo)
+  max-balance-transfer: 1000000.0
+
+  # Valor mínimo que pode ser transferido por vez (saldo)
+  min-balance-transfer: 1.0
+
+  # Valor máximo que pode ser transferido por vez (cash)
+  max-cash-transfer: 1000000.0
+
+  # Valor mínimo que pode ser transferido por vez (cash)
+  min-cash-transfer: 1.0
+
+  # Permitir transferências apenas entre jogadores online
+  online-only-transfers: false
+
+  # Log de transações
+  enable-transaction-log: true
+
+  # Caminho do arquivo de log
+  transaction-log-file: "transactions.log"
+
+# Configurações de formatação
+formatting:
+  # Formato de exibição do saldo
+  balance-format: "&aR$%.2f"
+
+  # Formato de exibição do cash
+  cash-format: "&6%.0f Cash"
+
+  # Usar separador de milhares
+  use-thousand-separator: true
+
+  # Caractere para separador de milhares
+  thousand-separator: ","
+
+  # Caractere para separador decimal
+  decimal-separator: "."
+
+# Configurações de comandos
+commands:
+  # Aliases para comandos de saldo
+  balance-aliases: ["money", "dinheiro"]
+  pay-aliases: ["pagar", "transferir"]
+
+  # Aliases para comandos de cash
+  cash-aliases: ["cashs", "moedas"]
+  send-cash-aliases: ["enviarcash", "sendcash"]
+
+  # Cooldown entre transferências (em segundos)
+  transfer-cooldown: 3
+
+  # Mensagem de cooldown
+  cooldown-message: "&cAguarde {seconds} segundos para fazer outra transferência."
+
+# Configurações de banco de dados (futuro)
+database:
+  # Tipo de armazenamento (FILE, MYSQL)
+  type: FILE
+
+  # Configurações MySQL (para uso futuro)
+  mysql:
+    host: localhost
+    port: 3306
+    database: economy
+    username: root
+    password: ""
+    table-prefix: "eco_"
+
+  # Intervalo de salvamento automático (em minutos)
+  save-interval: 5

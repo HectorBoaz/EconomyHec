@@ -21,17 +21,27 @@ public class Main extends JavaPlugin {
         cf = getConfig();
         sh = Bukkit.getScheduler();
         pm = Bukkit.getPluginManager();
-
     }
 
     @Override
     public void onEnable() {
         pm.registerEvents(new Events(), this);
+
+        // Comandos de Saldo (já existentes)
         m.getCommand("pagar").setExecutor(new Commands());
         m.getCommand("saldo").setExecutor(new Commands());
         m.getCommand("versaldo").setExecutor(new Commands());
-        m.getCommand("addsaldo").setExecutor(new Commands());
-        m.getCommand("setsaldo").setExecutor(new Commands());
+        m.getCommand("addsaldo").setExecutor(new CommandsAdmin());
+        m.getCommand("setsaldo").setExecutor(new CommandsAdmin());
+
+        // Comandos de Cash (novos)
+        m.getCommand("cash").setExecutor(new Commands());
+        m.getCommand("vercash").setExecutor(new Commands());
+        m.getCommand("enviarcash").setExecutor(new Commands());
+        m.getCommand("addcash").setExecutor(new CommandsAdmin());
+        m.getCommand("setcash").setExecutor(new CommandsAdmin());
+        m.getCommand("removecash").setExecutor(new CommandsAdmin());
+
         this.economy = new Economy();
         BalanceAPI.init(this.economy);
 
@@ -42,7 +52,6 @@ public class Main extends JavaPlugin {
                 this,
                 org.bukkit.plugin.ServicePriority.Normal
         );
-
     }
 
     public Economy getEconomy() {
@@ -51,8 +60,6 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
         HandlerList.unregisterAll(new Events());
-
     }
 }

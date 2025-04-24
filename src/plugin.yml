@@ -2,11 +2,12 @@ name: Economy
 main: net.byebye.balance.Main
 version: 1.0
 author: gabriel
-description: Um plugin de economia
+description: Um plugin de economia com sistema de cash
 api-version: 1.21.4
 depend: [Vault]
 
 commands:
+  # Comandos de Saldo (já existentes)
   pagar:
     description: Pagar outro jogador
     permission: balance.pagar
@@ -23,7 +24,57 @@ commands:
     description: Ver saldo de outro jogador
     permission: balance.versaldo
 
-    
-    
-  
+  # Comandos de Cash (novos)
+  cash:
+    description: Ver seu saldo de cash
+    permission: balance.cash
+  vercash:
+    description: Ver o cash de outro jogador
+    permission: balance.vercash
+  enviarcash:
+    description: Enviar cash para outro jogador
+    permission: balance.enviarcash
+  addcash:
+    description: Adicionar cash a um jogador
+    permission: balance.addcash
+  setcash:
+    description: Definir o cash de um jogador
+    permission: balance.setcash
+  removecash:
+    description: Remover cash de um jogador
+    permission: balance.removecash
 
+permissions:
+  balance.pagar:
+    description: Permite pagar outros jogadores
+    default: true
+  balance.saldo:
+    description: Permite ver seu saldo
+    default: true
+  balance.versaldo:
+    description: Permite ver saldo de outros jogadores
+    default: true
+  balance.addsaldo:
+    description: Permite adicionar saldo a jogadores
+    default: op
+  balance.setsaldo:
+    description: Permite definir saldo de jogadores
+    default: op
+  balance.cash:
+    description: Permite ver seu cash
+    default: true
+  balance.vercash:
+    description: Permite ver cash de outros jogadores
+    default: true
+  balance.enviarcash:
+    description: Permite enviar cash para outros jogadores
+    default: true
+  balance.addcash:
+    description: Permite adicionar cash a jogadores
+    default: op
+  balance.setcash:
+    description: Permite definir cash de jogadores
+    default: op
+  balance.removecash:
+    description: Permite remover cash de jogadores
+    default: op
