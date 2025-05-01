@@ -2,9 +2,9 @@ name: Economy
 main: net.byebye.balance.Main
 version: 1.0
 author: gabriel
-description: Um plugin de economia com sistema de cash
 api-version: 1.21.4
 depend: [Vault]
+description: Um plugin de economia com sistema de cash
 
 commands:
   # Comandos de Saldo (já existentes)

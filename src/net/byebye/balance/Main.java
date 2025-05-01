@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
@@ -27,14 +28,14 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         pm.registerEvents(new Events(), this);
 
-        // Comandos de Saldo (já existentes)
+        // Comandos de Saldo
         m.getCommand("pagar").setExecutor(new Commands());
         m.getCommand("saldo").setExecutor(new Commands());
         m.getCommand("versaldo").setExecutor(new Commands());
         m.getCommand("addsaldo").setExecutor(new CommandsAdmin());
         m.getCommand("setsaldo").setExecutor(new CommandsAdmin());
 
-        // Comandos de Cash (novos)
+        // Comandos de Cash
         m.getCommand("cash").setExecutor(new Commands());
         m.getCommand("vercash").setExecutor(new Commands());
         m.getCommand("enviarcash").setExecutor(new Commands());
@@ -42,16 +43,18 @@ public class Main extends JavaPlugin {
         m.getCommand("setcash").setExecutor(new CommandsAdmin());
         m.getCommand("removecash").setExecutor(new CommandsAdmin());
 
+        // INICIALIZA economy ANTES
         this.economy = new Economy();
         BalanceAPI.init(this.economy);
 
-        // Registra sua economia no Vault
+        getLogger().info("Tentando registrar economia no Vault...");
         getServer().getServicesManager().register(
                 net.milkbowl.vault.economy.Economy.class,
                 new VaultEconomyImpl(this.economy),
                 this,
-                org.bukkit.plugin.ServicePriority.Normal
+                ServicePriority.Highest
         );
+        getLogger().info("Economia registrada.");
     }
 
     public Economy getEconomy() {
